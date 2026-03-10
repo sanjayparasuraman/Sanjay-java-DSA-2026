@@ -1,25 +1,20 @@
 package java_oop;
 
 public class Main {
-    
 
-	public static void main(String[] args) {
-		Student m1 = new Student();
-		m1.name = "zodd";
-		m1.rollnumber = 919;
-		m1.marks = 85.5;
-		m1.displayinfo();
-		
-		Student m2 = new Student();
-		m2.name = "guts";
-		m2.rollnumber = 818;
-		m2.marks = 95.9;
-		m2.displayinfo();
-		
-	
-	}
+    public static void main(String[] args) {
 
+        Student m1 = new Student("Zodd", 20, 919);
+        Student m2 = new Student("Guts", 21, 818);
+
+        m1.displayInfo();
+        System.out.println();
+
+        m2.displayInfo();
+        System.out.println();
+
+        System.out.println("College: " + Student.getCollegeName());
+    }
 }
-
     
 
