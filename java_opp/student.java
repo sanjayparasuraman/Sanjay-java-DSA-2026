@@ -1,4 +1,4 @@
-package java_opp;
+package java_oop;
 
 public class Student {
 
