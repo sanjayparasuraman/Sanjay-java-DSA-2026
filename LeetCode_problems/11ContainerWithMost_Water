@@ -1,0 +1,22 @@
+class Solution {
+    public int maxArea(int[] height) {
+		int l = 0;
+		int r = height.length-1;
+		int ans = 0;
+		while(l < r) {
+			int temp = Math.min(height[l] , height[r]) * (r-l);
+			if(temp>ans) {
+				ans = temp;
+			}
+			if(height[l] > height[r]){
+				r--;
+			}
+			else {
+				l++;
+			}
+			  
+		}
+		return ans;
+        // leetcode problem 11 : container with most water{1,8,6,2,5,4,8,3,7}.
+    }
+}
