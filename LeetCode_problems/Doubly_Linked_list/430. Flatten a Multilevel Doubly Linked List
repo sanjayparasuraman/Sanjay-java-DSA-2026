@@ -1,0 +1,50 @@
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
+
+class Solution {
+    public Node flatten(Node head) {
+        if(head == null) return null;
+        dfs(head);
+        return head;        
+    }
+    private Node dfs(Node node){
+        Node current = node;
+        Node tail = node;
+
+        while(current != null){
+            Node nextn = current.next;
+
+            if(current.child == null){
+                tail = current;
+                current = current.next;
+            }
+            else{
+                Node childhead = current.child;
+
+                Node childtail = dfs(childhead);
+
+                current.next = childhead;
+                childhead.prev = current;
+
+                current.child = null;
+
+                if(nextn != null){
+                    childtail.next = nextn;
+                    nextn.prev = childtail;
+                }
+                tail = childtail;
+
+                current = nextn;
+            }
+        }
+        return tail;
+
+    }
+}
