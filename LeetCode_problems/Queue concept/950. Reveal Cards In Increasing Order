@@ -1,0 +1,18 @@
+class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        Deque<Integer> deque = new LinkedList<>();
+        Arrays.sort(deck);
+        deque.addFirst(deck[deck.length-1]);
+        for(int i = deck.length-2 ; i >= 0 ; i--){
+            deque.addFirst(deque.removeLast());
+            deque.addFirst(deck[i]);
+        }
+        int idx = 0;
+        int[] result = new int[deque.size()];
+
+        for(int num : deque){
+            result[idx++] = num;
+        }
+        return result;
+    }
+}
