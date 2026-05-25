@@ -6,10 +6,10 @@ class Solution {
             while(left <= right){
                 int needed = target - numbers[i];
                 int mid = left +(right - left)/2;
-                if(numbers[i] + numbers[mid] == target){
+                if(numbers[mid] == needed){
                     return new int[]{i+1 , mid+1};
                 }
-                else if(numbers[i] + numbers[mid] > target){
+                else if(numbers[mid] > needed){
                     right = mid-1;
                 }
                 else{
